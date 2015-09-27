@@ -1,0 +1,15 @@
+OptcRestApi\Components\Character\Entity\Character:
+    type: entity
+    repositoryClass: ~
+    table: address
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            column: name
+            type: string
+            length: 255
+            nullable: false

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d8335882398aa0dfccb541cb297e7535",
-    "content-hash": "f46c44c78f312abcd79dd38d6d50d088",
+    "hash": "5da07a49388fb5d57c34108067ed068c",
+    "content-hash": "222b5f1ed8bfb8b76cf01a9ca7ff6e0c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1659,6 +1659,68 @@
                 "markdown"
             ],
             "time": "2015-03-01 12:03:08"
+        },
+        {
+            "name": "mmoreram/simple-doctrine-mapping",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mmoreram/SimpleDoctrineMapping.git",
+                "reference": "24eadefc09d742e10ece7b5e1ec08bbce8b95283"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mmoreram/SimpleDoctrineMapping/zipball/24eadefc09d742e10ece7b5e1ec08bbce8b95283",
+                "reference": "24eadefc09d742e10ece7b5e1ec08bbce8b95283",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "~2.4",
+                "doctrine/orm": "~2.4",
+                "php": ">=5.4",
+                "symfony/dependency-injection": "~2.4",
+                "symfony/http-kernel": "~2.4"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "~1.2",
+                "fabpot/php-cs-fixer": "1.4.2",
+                "mmoreram/php-formatter": "1.0.4",
+                "phpunit/phpunit": "4.5.0",
+                "symfony/framework-bundle": "~2.4, >=2.4.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mmoreram\\SimpleDoctrineMapping\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Morera",
+                    "email": "yuhu@mmoreram.com"
+                },
+                {
+                    "name": "SimpleDoctrineMapping Community",
+                    "homepage": "https://github.com/mmoreram/SimpleDoctrineMapping/contributors"
+                }
+            ],
+            "description": "Simple Doctrine Mapping ",
+            "homepage": "https://github.com/mmoreram/SimpleDoctrineMapping",
+            "keywords": [
+                "doctrine",
+                "mapping",
+                "mmoreram"
+            ],
+            "time": "2015-04-10 16:50:22"
         },
         {
             "name": "monolog/monolog",

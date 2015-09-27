@@ -1,0 +1,3 @@
+rest_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: RESTBundle:Default:index }
