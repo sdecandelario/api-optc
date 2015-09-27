@@ -23,7 +23,7 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new FOS\HttpCacheBundle\FOSHttpCacheBundle(),
             new Snc\RedisBundle\SncRedisBundle(),
-            new AppBundle\AppBundle(),
+            new Bundles\RESTBundle\RESTBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
