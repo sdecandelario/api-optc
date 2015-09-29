@@ -1,7 +1,7 @@
-OptcRestApi\Components\Character\Entity\Character:
+OptcRestApi\Components\Client\Entity\Client:
     type: entity
     repositoryClass: ~
-    table: characters
+    table: client
     id:
         id:
             type: integer

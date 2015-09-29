@@ -1,0 +1,14 @@
+OptcRestApi\Components\RefreshToken\Entity\RefreshToken:
+    type: entity
+    repositoryClass: ~
+    table: auth_code
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    manyToOne:
+        client:
+            targetEntity: OptcRestApi\Components\Client\Entity\Client
+            joinColumn:
+                nullable: false

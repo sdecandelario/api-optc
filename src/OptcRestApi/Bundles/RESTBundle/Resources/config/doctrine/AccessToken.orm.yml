@@ -1,0 +1,14 @@
+OptcRestApi\Components\AccessToken\Entity\AccessToken:
+    type: entity
+    repositoryClass: ~
+    table: access_token
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    manyToOne:
+        client:
+            targetEntity: OptcRestApi\Components\Client\Entity\Client
+            joinColumn:
+                nullable: false

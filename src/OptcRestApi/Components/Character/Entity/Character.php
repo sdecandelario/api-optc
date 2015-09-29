@@ -2,12 +2,14 @@
 
 namespace OptcRestApi\Components\Character\Entity;
 
+use OptcRestApi\Components\Character\Model\Interfaces\CharacterInterface;
+use OptcRestApi\Components\Core\Abstracts\AbstractEntity;
+
 /**
- * Character
+ * Character.
  *
  * @author Sergio de Candelario <hadesbcn@gmail.com>
  */
-class Character
+class Character extends AbstractEntity implements CharacterInterface
 {
-
 }

@@ -6,7 +6,7 @@ use Mmoreram\SimpleDoctrineMapping\CompilerPass\Abstracts\AbstractMappingCompile
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * MappingCompilerPass
+ * MappingCompilerPass.
  *
  * @author Sergio de Candelario <hadesbcn@gmail.com>
  */
@@ -14,6 +14,9 @@ class MappingCompilerPass extends AbstractMappingCompilerPass
 {
     private static $classes = array(
         'OptcRestApi\Components\Character\Entity\Character',
+        'OptcRestApi\Components\Client\Entity\Client',
+        'OptcRestApi\Components\AccessToken\Entity\AccessToken',
+        'OptcRestApi\Components\RefreshToken\Entity\RefreshToken',
     );
 
     /**
