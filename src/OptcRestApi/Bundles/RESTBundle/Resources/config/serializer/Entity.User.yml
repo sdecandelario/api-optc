@@ -1,0 +1,18 @@
+OptcRestApi\Components\User\Entity\User:
+    exclusion_policy: ALL
+    access_type: property
+    read_only: false
+    properties:
+        id:
+            expose: true
+            type: integer
+            access_type: property
+            groups: [api]
+        name:
+            type: string
+            expose: true
+            groups: [redis, api]
+        city:
+            type: string
+            expose: true
+            groups: [redis]

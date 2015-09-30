@@ -10,14 +10,14 @@ parameters:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator: { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
-    form:            ~
+    form: ~
     csrf_protection: ~
-    validation:      { enable_annotations: true }
+    #validation:      { enable_annotations: true }
     #serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
@@ -85,3 +85,17 @@ snc_redis:
             type: predis
             alias: default
             dsn: redis://localhost
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: OptcRestApi\Components\User\Entity\User
+
+fos_oauth_server:
+    service:
+        user_provider: fos_user.user_manager
+    db_driver: orm
+    client_class: OptcRestApi\Components\Client\Entity\Client
+    access_token_class: OptcRestApi\Components\AccessToken\Entity\AccessToken
+    refresh_token_class: OptcRestApi\Components\RefreshToken\Entity\RefreshToken
+    auth_code_class: OptcRestApi\Components\AuthCode\Entity\AuthCode

@@ -1,4 +1,4 @@
-OptcRestApi\Components\RefreshToken\Entity\RefreshToken:
+OptcRestApi\Components\AuthCode\Entity\AuthCode:
     type: entity
     repositoryClass: ~
     table: auth_code

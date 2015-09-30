@@ -13,10 +13,11 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 class MappingCompilerPass extends AbstractMappingCompilerPass
 {
     private static $classes = array(
-        'OptcRestApi\Components\Character\Entity\Character',
-        'OptcRestApi\Components\Client\Entity\Client',
-        'OptcRestApi\Components\AccessToken\Entity\AccessToken',
-        'OptcRestApi\Components\RefreshToken\Entity\RefreshToken',
+        //'OptcRestApi\Components\Character\Entity\Character',
+        //'OptcRestApi\Components\Client\Entity\Client',
+        //'OptcRestApi\Components\AccessToken\Entity\AccessToken',
+        //'OptcRestApi\Components\RefreshToken\Entity\RefreshToken',
+        'OptcRestApi\Components\User\Entity\User',
     );
 
     /**
