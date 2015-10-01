@@ -14,9 +14,10 @@ class MappingCompilerPass extends AbstractMappingCompilerPass
 {
     private static $classes = array(
         //'OptcRestApi\Components\Character\Entity\Character',
-        //'OptcRestApi\Components\Client\Entity\Client',
-        //'OptcRestApi\Components\AccessToken\Entity\AccessToken',
-        //'OptcRestApi\Components\RefreshToken\Entity\RefreshToken',
+        'OptcRestApi\Components\OAuth\Entity\Client',
+        'OptcRestApi\Components\OAuth\Entity\AccessToken',
+        'OptcRestApi\Components\OAuth\Entity\AuthCode',
+        'OptcRestApi\Components\OAuth\Entity\RefreshToken',
         'OptcRestApi\Components\User\Entity\User',
     );
 

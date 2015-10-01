@@ -1,4 +1,4 @@
-OptcRestApi\Components\AuthCode\Entity\AuthCode:
+OptcRestApi\Components\OAuth\Entity\AuthCode:
     type: entity
     repositoryClass: ~
     table: auth_code
@@ -9,6 +9,6 @@ OptcRestApi\Components\AuthCode\Entity\AuthCode:
                 strategy: AUTO
     manyToOne:
         client:
-            targetEntity: OptcRestApi\Components\Client\Entity\Client
+            targetEntity: OptcRestApi\Components\OAuth\Entity\Client
             joinColumn:
                 nullable: false

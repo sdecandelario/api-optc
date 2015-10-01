@@ -95,7 +95,7 @@ fos_oauth_server:
     service:
         user_provider: fos_user.user_manager
     db_driver: orm
-    client_class: OptcRestApi\Components\Client\Entity\Client
-    access_token_class: OptcRestApi\Components\AccessToken\Entity\AccessToken
-    refresh_token_class: OptcRestApi\Components\RefreshToken\Entity\RefreshToken
-    auth_code_class: OptcRestApi\Components\AuthCode\Entity\AuthCode
+    client_class: OptcRestApi\Components\OAuth\Entity\Client
+    access_token_class: OptcRestApi\Components\OAuth\Entity\AccessToken
+    refresh_token_class: OptcRestApi\Components\OAuth\Entity\RefreshToken
+    auth_code_class: OptcRestApi\Components\OAuth\Entity\AuthCode

@@ -1,4 +1,4 @@
-OptcRestApi\Components\Client\Entity\Client:
+OptcRestApi\Components\OAuth\Entity\Client:
     type: entity
     repositoryClass: ~
     table: client

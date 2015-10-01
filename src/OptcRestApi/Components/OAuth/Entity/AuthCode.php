@@ -1,6 +1,6 @@
 <?php
 
-namespace OptcRestApi\Components\AuthCode\Entity;
+namespace OptcRestApi\Components\OAuth\Entity;
 
 use FOS\OAuthServerBundle\Entity\AuthCode as BaseAuthCode;
 

@@ -1,4 +1,4 @@
-OptcRestApi\Components\RefreshToken\Entity\RefreshToken:
+OptcRestApi\Components\OAuth\Entity\RefreshToken:
     type: entity
     repositoryClass: ~
     table: refresh_token
@@ -9,6 +9,6 @@ OptcRestApi\Components\RefreshToken\Entity\RefreshToken:
                 strategy: AUTO
     manyToOne:
         client:
-            targetEntity: OptcRestApi\Components\Client\Entity\Client
+            targetEntity: OptcRestApi\Components\OAuth\Entity\Client
             joinColumn:
                 nullable: false

@@ -1,4 +1,4 @@
-OptcRestApi\Components\AccessToken\Entity\AccessToken:
+OptcRestApi\Components\OAuth\Entity\AccessToken:
     type: entity
     repositoryClass: ~
     table: access_token
@@ -9,6 +9,6 @@ OptcRestApi\Components\AccessToken\Entity\AccessToken:
                 strategy: AUTO
     manyToOne:
         client:
-            targetEntity: OptcRestApi\Components\Client\Entity\Client
+            targetEntity: OptcRestApi\Components\OAuth\Entity\Client
             joinColumn:
                 nullable: false

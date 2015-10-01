@@ -1,6 +1,6 @@
 <?php
 
-namespace OptcRestApi\Components\RefreshToken\Entity;
+namespace OptcRestApi\Components\OAuth\Entity;
 
 use FOS\OAuthServerBundle\Entity\RefreshToken as BaseRefreshToken;
 

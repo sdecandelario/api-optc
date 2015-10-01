@@ -1,6 +1,6 @@
 <?php
 
-namespace OptcRestApi\Components\AccessToken\Entity;
+namespace OptcRestApi\Components\OAuth\Entity;
 
 use FOS\OAuthServerBundle\Entity\AccessToken as BaseAccessToken;
 

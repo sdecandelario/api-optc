@@ -1,6 +1,6 @@
 <?php
 
-namespace OptcRestApi\Components\Client\Entity;
+namespace OptcRestApi\Components\OAuth\Entity;
 
 use FOS\OAuthServerBundle\Entity\Client as BaseClient;
 
