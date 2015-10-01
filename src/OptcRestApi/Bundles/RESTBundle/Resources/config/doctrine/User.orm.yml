@@ -11,6 +11,10 @@ OptcRestApi\Components\User\Entity\User:
         username:
             type: string
             length: 255
+        usernameCanonical:
+            column: username_canonical
+            type: string
+            length: 255
         email:
             type: string
             length: 255

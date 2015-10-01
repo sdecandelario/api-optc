@@ -4,3 +4,8 @@ login_check:
 user:
     resource: "@RESTBundle/Resources/config/routing/user.yml"
     prefix: /user
+
+test:
+    path: /test
+    defaults:
+        _controller: RESTBundle:Users/User:generateClient

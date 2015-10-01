@@ -7,3 +7,14 @@ OptcRestApi\Components\OAuth\Entity\Client:
             type: integer
             generator:
                 strategy: AUTO
+    fields:
+        randomId:
+            column: random_id
+            type: string
+        secret:
+            type: string
+        redirectUris:
+            column: redirect_uris
+            type: array
+        allowedGrantTypes:
+            type: array
