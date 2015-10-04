@@ -12,3 +12,7 @@ OptcRestApi\Components\OAuth\Entity\AuthCode:
             targetEntity: OptcRestApi\Components\OAuth\Entity\Client
             joinColumn:
                 nullable: false
+        user:
+            targetEntity: OptcRestApi\Components\User\Entity\User
+            joinColumn:
+                nullable: false
