@@ -7,6 +7,10 @@ OptcRestApi\Components\OAuth\Entity\AccessToken:
             type: integer
             generator:
                 strategy: AUTO
+    fields:
+        token:
+            type: string
+            length: 255
     manyToOne:
         client:
             targetEntity: OptcRestApi\Components\OAuth\Entity\Client

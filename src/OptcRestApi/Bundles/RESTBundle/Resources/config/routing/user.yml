@@ -2,3 +2,8 @@ user_register:
     path: /register
     defaults:
         _controller: RESTBundle:Users/User:register
+
+user_current_user:
+    path: /current
+    defaults:
+        _controller: RESTBundle:Users/User:user

@@ -17,38 +17,46 @@ class CreateClientCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('oauth:create:client')
-            ->setDescription('Create a OAuth client')
+            ->setName('oauth:client:create')
+            ->setDescription('Creates a new client')
             ->addOption(
-                'redirect-uris',
+                'redirect-uri',
                 null,
-                InputOption::VALUE_NONE,
-                'The URIs to redirect, separated by pipe'
+                InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
+                'Sets redirect uri for client. Use this option multiple times to set multiple redirect URIs.',
+                null
             )
             ->addOption(
-                'grant-types',
+                'grant-type',
                 null,
-                InputOption::VALUE_REQUIRED,
-                'The grant types, separated by pipe',
-                'password|refresh_token|client_credentials'
+                InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
+                'Sets allowed grant type for client. Use this option multiple times to set multiple grant types..',
+                null
             )
-        ;
+            ->setHelp(
+                <<<EOT
+                    The <info>%command.name%</info>command creates a new client.
+
+<info>php %command.full_name% [--redirect-uri=...] [--grant-type=...] name</info>
+
+EOT
+            );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $redirectUris = explode('|', $input->getOption('redirect-uris'));
-        $grantTypes = explode('|', $input->getOption('grant-types'));
-
         $clientManager = $this->getContainer()->get('fos_oauth_server.client_manager.default');
         $client = $clientManager->createClient();
-        $client->setRedirectUris($redirectUris);
-        $client->setAllowedGrantTypes($grantTypes);
+        $client->setRedirectUris($input->getOption('redirect-uri'));
+        $client->setAllowedGrantTypes($input->getOption('grant-type'));
         $clientManager->updateClient($client);
 
-        $client->getPublicId();
-        $client->getSecret();
-
-        $output->writeln("{$client->getId()} - {$client->getSecret()}");
+        $output->writeln(
+            sprintf(
+                'Added a new client with public id <info>%s</info>, secret <info>%s</info>',
+                $client->getPublicId(),
+                $client->getSecret()
+            )
+        );
     }
 }

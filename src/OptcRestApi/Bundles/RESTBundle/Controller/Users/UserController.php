@@ -3,8 +3,7 @@
 namespace OptcRestApi\Bundles\RESTBundle\Controller\Users;
 
 use OptcRestApi\Bundles\RESTBundle\Controller\BaseController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * UserController.
@@ -13,48 +12,25 @@ use Symfony\Component\Security\Core\SecurityContext;
  */
 class UserController extends BaseController
 {
-    public function loginAction(Request $request)
+    public function testApiAction()
     {
-        $session = $request->getSession();
+        $articles = array('article1', 'article2', 'article3');
 
-        // get the login error if there is one
-        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
-            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
-        } else {
-            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
-            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
+        return new JsonResponse($articles);
+    }
+
+    public function userAction()
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if ($user) {
+            return new JsonResponse(array(
+                'id' => $user->getId(),
+                'username' => $user->getUsername(),
+            ));
         }
 
-        // Add the following lines
-        if ($session->has('_security.target_path')) {
-            if (false !== strpos($session->get('_security.target_path'), $this->generateUrl('fos_oauth_server_authorize'))) {
-                $session->set('_fos_oauth_server.ensure_logout', true);
-            }
-        }
-
-        return $this->render('AcmeSecurityBundle:Security:login.html.twig', array(
-            // last username entered by the user
-            'last_username' => $session->get(SecurityContext::LAST_USERNAME),
-            'error' => $error,
+        return new JsonResponse(array(
+            'message' => 'User is not identified',
         ));
-    }
-
-    public function registerAction()
-    {
-    }
-
-    public function generateClientAction()
-    {
-        $clientManager = $this->get('fos_oauth_server.client_manager.default');
-        $client = $clientManager->createClient();
-        $client->setRedirectUris(array('http://www.example.com'));
-        $client->setAllowedGrantTypes(array('token', 'authorization_code'));
-        $clientManager->updateClient($client);
-
-        return $this->redirect($this->generateUrl('fos_oauth_server_authorize', array(
-            'client_id' => $client->getPublicId(),
-            'redirect_uri' => 'http://www.example.com',
-            'response_type' => 'code',
-        )));
     }
 }

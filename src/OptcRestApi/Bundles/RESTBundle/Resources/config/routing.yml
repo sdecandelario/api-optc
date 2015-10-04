@@ -5,7 +5,7 @@ user:
     resource: "@RESTBundle/Resources/config/routing/user.yml"
     prefix: /user
 
-test:
-    path: /test
+test_api:
+    path: /test-api
     defaults:
-        _controller: RESTBundle:Users/User:generateClient
+        _controller: RESTBundle:Users/User:testApi
