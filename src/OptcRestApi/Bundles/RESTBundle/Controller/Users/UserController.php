@@ -12,14 +12,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  */
 class UserController extends BaseController
 {
-    public function testApiAction()
-    {
-        $articles = array('article1', 'article2', 'article3');
-
-        return new JsonResponse($articles);
-    }
-
-    public function userAction()
+    public function currentUserAction()
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         if ($user) {

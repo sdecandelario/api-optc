@@ -3,9 +3,8 @@ login_check:
 
 user:
     resource: "@RESTBundle/Resources/config/routing/user.yml"
-    prefix: /user
+    prefix: /users
 
-test_api:
-    path: /test-api
-    defaults:
-        _controller: RESTBundle:Users/User:testApi
+character:
+    resource: "@RESTBundle/Resources/config/routing/character.yml"
+    prefix: /characters

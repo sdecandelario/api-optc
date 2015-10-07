@@ -1,0 +1,29 @@
+character_list:
+    path: /
+    defaults:
+        _controller: RESTBundle:Character/Character:list
+    methods: [GET]
+
+character_get:
+    path: /{id}
+    defaults:
+        _controller: RESTBundle:Character/Character:get
+    methods: [GET]
+
+character_update:
+    path: /{id}
+    defaults:
+        _controller: RESTBundle:Character/Character:update
+    methods: [PATCH]
+
+character_delete:
+    path: /{id}
+    defaults:
+        _controller: RESTBundle:Character/Character:delete
+    methods: [DELTE]
+
+character_create:
+    path: /create
+    defaults:
+        _controller: RESTBundle:Character/Character:create
+    methods: [POST]

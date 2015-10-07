@@ -7,3 +7,43 @@ OptcRestApi\Components\Character\Entity\Character:
             type: integer
             generator:
                 strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+#        class:
+#            type: string
+#            length: 255
+#        description:
+#            type: text
+#        type:
+#            type: string
+#            length: 255
+#        rarity:
+#            type: integer
+#        cost:
+#            type: integer
+#        combo:
+#            type: integer
+#        price:
+#            type: integer
+#        max_level:
+#            type: integer
+#        experience:
+#            type: integer
+#        base_stats:
+#            type: json_array
+#        max_stats:
+#            type: json_array
+#        captain_hability_name:
+#            type: string
+#            length: 255
+#        captain_hability_description:
+#            type: text
+
+        #todo relaciones
+        #special
+        #pre-evolution
+        #evolutions
+        #evolvers
+        #tandems

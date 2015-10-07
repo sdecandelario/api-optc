@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Snc\RedisBundle\SncRedisBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new OptcRestApi\Bundles\RESTBundle\RESTBundle(),
         );
 

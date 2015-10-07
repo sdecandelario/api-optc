@@ -23,5 +23,6 @@ security:
             anonymous: false
 
     access_control:
+        - { path: ^/(_(profiler|wdt|fragment|error)|css|images|js)/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/oauth/v2/auth_login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: IS_AUTHENTICATED_FULLY }

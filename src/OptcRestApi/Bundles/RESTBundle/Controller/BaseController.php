@@ -2,14 +2,13 @@
 
 namespace OptcRestApi\Bundles\RESTBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\FOSRestController;
 
 /**
- * BaseController
+ * BaseController.
  *
  * @author Sergio de Candelario <hadesbcn@gmail.com>
  */
-class BaseController extends Controller
+class BaseController extends FOSRestController
 {
-
 }

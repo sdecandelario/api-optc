@@ -1,4 +1,7 @@
 services:
-#    rest.example:
-#        class: OptcRestApi\Bundles\RESTBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    optc_api.repository.character:
+        class: 'OptcRestApi\Components\Character\Entity\CharacterRepository'
+        factory_service: doctrine
+        factory_method:  getRepository
+        arguments:
+            - OptcRestApi\Components\Character\Entity\Character

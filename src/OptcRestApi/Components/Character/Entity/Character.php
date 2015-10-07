@@ -12,4 +12,25 @@ use OptcRestApi\Components\Core\Abstracts\AbstractEntity;
  */
 class Character extends AbstractEntity implements CharacterInterface
 {
+    private $name;
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param $name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
 }

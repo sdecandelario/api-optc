@@ -1,0 +1,13 @@
+OptcRestApi\Components\Character\Entity\Character:
+    exclusion_policy: ALL
+    access_type: property
+    read_only: false
+    properties:
+        name:
+            type: string
+            expose: true
+            groups: [api]
+        description:
+            type: string
+            expose: true
+            groups: [redis]

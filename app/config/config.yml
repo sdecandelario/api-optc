@@ -99,3 +99,26 @@ fos_oauth_server:
     access_token_class: OptcRestApi\Components\OAuth\Entity\AccessToken
     refresh_token_class: OptcRestApi\Components\OAuth\Entity\RefreshToken
     auth_code_class: OptcRestApi\Components\OAuth\Entity\AuthCode
+
+jms_serializer:
+    metadata:
+        auto_detection: true
+        directories:
+            AdminBundle:
+                namespace_prefix: "OptcRestApi\\Components"
+                path: "%kernel.root_dir%/../src/OptcRestApi/Bundles/RESTBundle/Resources/config/serializer"
+
+fos_rest:
+    routing_loader:
+        default_format: json
+    view:
+        templating_formats:
+            json: false
+
+knp_paginator:
+    page_range: 10
+    default_options:
+        page_name: page
+        sort_field_name: sort
+        sort_direction_name: direction
+        distinct: true
