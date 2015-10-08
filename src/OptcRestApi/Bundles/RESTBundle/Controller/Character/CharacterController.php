@@ -2,10 +2,14 @@
 
 namespace OptcRestApi\Bundles\RESTBundle\Controller\Character;
 
+use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\SerializationContext;
 use OptcRestApi\Bundles\RESTBundle\Controller\BaseController;
+use OptcRestApi\Components\Character\Entity\Character;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 /**
  * CharacterController.
@@ -85,11 +89,26 @@ class CharacterController extends BaseController
         return $this->handleView($view);
     }
 
-    public function updateAction(){
+    /**
+     * @ParamConverter("entity", converter="fos_rest.request_body", options={"deserializationContext"={"groups"={"api"}}})
+     *
+     * @param Character                        $entity
+     * @param ConstraintViolationListInterface $validationErrors
+     *
+     * @return JsonResponse
+     */
+    public function updateAction(Character $entity, ConstraintViolationListInterface $validationErrors)
+    {
+        $response = new JsonResponse();
 
+        if (count($validationErrors) > 0) {
+            var_dump($validationErrors);
+        }
+
+        return $response;
     }
 
-    public function deleteAction(){
-
+    public function deleteAction()
+    {
     }
 }

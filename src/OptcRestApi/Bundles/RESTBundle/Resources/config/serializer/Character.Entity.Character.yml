@@ -3,6 +3,10 @@ OptcRestApi\Components\Character\Entity\Character:
     access_type: property
     read_only: false
     properties:
+        id:
+            type: integer
+            expose: true
+            groups: [api]
         name:
             type: string
             expose: true
