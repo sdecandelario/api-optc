@@ -8,8 +8,6 @@ use OptcRestApi\Bundles\RESTBundle\Controller\BaseController;
 use OptcRestApi\Components\Character\Entity\Character;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 /**
  * CharacterController.
@@ -90,25 +88,38 @@ class CharacterController extends BaseController
     }
 
     /**
-     * @ParamConverter("entity", converter="fos_rest.request_body", options={"deserializationContext"={"groups"={"api"}}})
-     *
-     * @param Character                        $entity
-     * @param ConstraintViolationListInterface $validationErrors
+     * @param Request $request
+     * @param $id
      *
      * @return JsonResponse
      */
-    public function updateAction(Character $entity, ConstraintViolationListInterface $validationErrors)
+    public function updateAction(Request $request, $id)
     {
         $response = new JsonResponse();
 
-        if (count($validationErrors) > 0) {
-            var_dump($validationErrors);
-        }
+        $em = $this->get('doctrine.orm.default_entity_manager');
+
+        $deserializationContext = new DeserializationContext();
+        $deserializationContext->setGroups(array('api'));
+        $entity = $this->get('jms_serializer')->fromArray($request->request->all(), 'OptcRestApi\Components\Character\Entity\Character', $deserializationContext);
+
+        $metadata = $em->getClassMetadata(get_class($entity));
+        $metadata->setIdentifierValues($entity, array('id' => $id));
+        $em->merge($entity);
+        $em->flush();
 
         return $response;
     }
 
-    public function deleteAction()
+    public function deleteAction(Character $character)
     {
+        $response = new JsonResponse();
+
+        $em = $this->get('doctrine.orm.default_entity_manager');
+
+        $em->remove($character);
+        $em->flush();
+
+        return $response;
     }
 }

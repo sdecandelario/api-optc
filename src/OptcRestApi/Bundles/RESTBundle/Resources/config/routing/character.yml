@@ -20,7 +20,7 @@ character_delete:
     path: /{id}
     defaults:
         _controller: RESTBundle:Character/Character:delete
-    methods: [DELTE]
+    methods: [DELETE]
 
 character_create:
     path: /create
