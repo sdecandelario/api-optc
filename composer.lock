@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "85530e8b29f5b9dc8a12a502e4f693f2",
-    "content-hash": "8467905b7b79804e1085f192d37196fb",
+    "hash": "68dd06010110437355cb832fe20e689a",
+    "content-hash": "6e201e2ae6f7342ee161eb8f11a233fd",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2308,6 +2308,58 @@
                 "rest"
             ],
             "time": "2015-05-16 17:16:14"
+        },
+        {
+            "name": "orbitale/entity-merger",
+            "version": "v0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Orbitale/EntityMerger.git",
+                "reference": "45dfab83c129c96460f50df99c3b2394ddf52c33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Orbitale/EntityMerger/zipball/45dfab83c129c96460f50df99c3b2394ddf52c33",
+                "reference": "45dfab83c129c96460f50df99c3b2394ddf52c33",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "~2.2,>=2.2.3",
+                "php": ">=5.3.3",
+                "symfony/symfony": ">=2.3.21"
+            },
+            "require-dev": {
+                "jms/serializer": "~0.16",
+                "phpunit/phpunit": "4.3.*",
+                "satooshi/php-coveralls": "~0.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Orbitale\\Component\\EntityMerger\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexandre Rock Ancelet",
+                    "email": "contact@orbitale.io",
+                    "homepage": "http://www.orbitale.io/"
+                }
+            ],
+            "description": "Merge arrays into your object entities",
+            "homepage": "https://github.com/Orbitale/EntityMerger",
+            "keywords": [
+                "doctrine",
+                "entity",
+                "merge",
+                "orm",
+                "symfony"
+            ],
+            "time": "2015-07-15 13:35:52"
         },
         {
             "name": "phpcollection/phpcollection",

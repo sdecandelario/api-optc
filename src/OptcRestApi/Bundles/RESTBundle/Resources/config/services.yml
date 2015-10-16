@@ -5,3 +5,9 @@ services:
         factory_method:  getRepository
         arguments:
             - OptcRestApi\Components\Character\Entity\Character
+
+    optc_api.entity_merger:
+        class: 'OptcRestApi\Bundles\RESTBundle\Service\ExtenderEntityMerger'
+        arguments:
+            - @serializer
+            - @doctrine.orm.default_entity_manager

@@ -3,12 +3,9 @@
 namespace OptcRestApi\Components\Character\Model\Interfaces;
 
 /**
- * CharacterInterface.
+ * Interface CharacterInterface.
  *
  * @author Sergio de Candelario <hadesbcn@gmail.com>
- */
-/**
- * Interface CharacterInterface.
  */
 interface CharacterInterface
 {
@@ -18,7 +15,7 @@ interface CharacterInterface
     public function getId();
 
     /**
-     * @return mixed
+     * @param $name
      */
     public function setName($name);
 
@@ -37,15 +34,15 @@ interface CharacterInterface
      */
     //public function getClass();
 
-//    /**
-//     * @return mixed
-//     */
-//    public function setDescription($description);
-//
-//    /**
-//     * @return mixed
-//     */
-//    public function getDescription();
+    /**
+     * @param $description
+     */
+    public function setDescription($description);
+
+    /**
+     * @return mixed
+     */
+    public function getDescription();
 //
 //    /**
 //     * @return mixed
@@ -57,15 +54,15 @@ interface CharacterInterface
 //     */
 //    public function getType();
 //
-//    /**
-//     * @return mixed
-//     */
-//    public function setRarity($rarity);
-//
-//    /**
-//     * @return mixed
-//     */
-//    public function getRarity();
+    /**
+     * @param $rarity
+     */
+    public function setRarity($rarity);
+
+    /**
+     * @return mixed
+     */
+    public function getRarity();
 //
 //    /**
 //     * @return mixed
@@ -97,26 +94,26 @@ interface CharacterInterface
 //     */
 //    public function getPrice();
 //
-//    /**
-//     * @return mixed
-//     */
-//    public function setMax_level();
-//
-//    /**
-//     * @return mixed
-//     */
-//    public function getMax_level();
-//
-//    /**
-//     * @return mixed
-//     */
-//    public function setExperience();
-//
-//    /**
-//     * @return mixed
-//     */
-//    public function getExperience();
-//
+    /**
+     * @param $maxLevel
+     */
+    public function setMaxLevel($maxLevel);
+
+    /**
+     * @return mixed
+     */
+    public function getMaxLevel();
+
+    /**
+     * @param $experience
+     */
+    public function setExperience($experience);
+
+    /**
+     * @return mixed
+     */
+    public function getExperience();
+
 //    /**
 //     * @return mixed
 //     */

@@ -97,15 +97,18 @@ class CharacterController extends BaseController
     {
         $response = new JsonResponse();
 
+        $serializer = $this->get('jms_serializer');
         $em = $this->get('doctrine.orm.default_entity_manager');
 
-        $deserializationContext = new DeserializationContext();
-        $deserializationContext->setGroups(array('api'));
-        $entity = $this->get('jms_serializer')->fromArray($request->request->all(), 'OptcRestApi\Components\Character\Entity\Character', $deserializationContext);
+        $merger = $this->get('optc_api.entity_merger');
 
-        $metadata = $em->getClassMetadata(get_class($entity));
-        $metadata->setIdentifierValues($entity, array('id' => $id));
-        $em->merge($entity);
+        $deserializationContext = new DeserializationContext();
+        $entity = $serializer->fromArray($request->request->all(), 'OptcRestApi\Components\Character\Entity\Character', $deserializationContext);
+        $character = $em->getRepository('OptcRestApi\Components\Character\Entity\Character')->find($id);
+
+        $merger->mergeEntities($character, $entity);
+
+        $em->merge($character);
         $em->flush();
 
         return $response;

@@ -11,7 +11,23 @@ OptcRestApi\Components\Character\Entity\Character:
             type: string
             expose: true
             groups: [api]
+        experience:
+            type: integer
+            expose: true
+            groups: [api]
         description:
             type: string
             expose: true
-            groups: [redis]
+            groups: [api]
+        maxLevel:
+            type: integer
+            expose: true
+            groups: [api]
+        rarity:
+            type: integer
+            expose: true
+            groups: [api]
+        cost:
+            type: integer
+            expose: true
+            groups: [api]

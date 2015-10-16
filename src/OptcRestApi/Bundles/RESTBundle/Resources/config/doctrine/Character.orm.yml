@@ -14,28 +14,28 @@ OptcRestApi\Components\Character\Entity\Character:
 #        class:
 #            type: string
 #            length: 255
-#        description:
-#            type: text
+        description:
+            type: text
 #        type:
 #            type: string
 #            length: 255
-#        rarity:
-#            type: integer
-#        cost:
-#            type: integer
-#        combo:
-#            type: integer
+        rarity:
+            type: integer
+        cost:
+            type: integer
+        combo:
+            type: integer
 #        price:
 #            type: integer
-#        max_level:
-#            type: integer
-#        experience:
-#            type: integer
+        maxLevel:
+            type: integer
+        experience:
+            type: integer
 #        base_stats:
 #            type: json_array
 #        max_stats:
 #            type: json_array
-#        captain_hability_name:
+#        captainHabilityName:
 #            type: string
 #            length: 255
 #        captain_hability_description:
