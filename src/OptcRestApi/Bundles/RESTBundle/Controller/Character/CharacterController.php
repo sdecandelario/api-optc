@@ -2,12 +2,14 @@
 
 namespace OptcRestApi\Bundles\RESTBundle\Controller\Character;
 
+use FOS\RestBundle\Request\ParamFetcher;
 use JMS\Serializer\SerializationContext;
 use OptcRestApi\Bundles\RESTBundle\Controller\BaseController;
 use OptcRestApi\Components\Character\Entity\Character;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use FOS\RestBundle\Controller\Annotations\QueryParam;
 
 /**
  * CharacterController.
@@ -17,14 +19,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class CharacterController extends BaseController
 {
     /**
-     * @param Request $request
+     * @QueryParam(name="page", requirements="\d+", default="1", description="Page of the overview.")
+     * @QueryParam(name="limit", requirements="\d+", default="10", description="Number of items.")
+     *
+     * @param ParamFetcher $paramFetcher
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function listAction(Request $request)
+    public function listAction(ParamFetcher $paramFetcher)
     {
-        $page = $request->query->get('page', 1);
-        $limit = $request->query->get('limit', 10);
+        $page = $paramFetcher->get('page');
+        $limit = $paramFetcher->get('limit');
 
         $paginator = $this->get('knp_paginator');
 
