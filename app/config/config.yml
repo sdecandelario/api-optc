@@ -114,20 +114,22 @@ fos_rest:
         validate: true
         validation_errors_argument: validationErrors
     param_fetcher_listener: true
-    format_listener: true
+    format_listener:
+        rules:
+            - { path: '^/', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
     routing_loader:
         default_format: json
     view:
         templating_formats:
             json: false
         formats:
-            rss: false
-            xml: false
+            xml: true
             json: true
     body_listener:
         array_normalizer: fos_rest.normalizer.camel_keys
         decoders:
             json: fos_rest.decoder.json
+            xml: fos_rest.decoder.xml
 
 knp_paginator:
     page_range: 10

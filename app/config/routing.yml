@@ -1,7 +1,6 @@
 rest:
     resource: "@RESTBundle/Resources/config/routing.yml"
     prefix: /
-    defaults: {_format: json}
 
 fos_oauth_server_token:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
