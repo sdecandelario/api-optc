@@ -6,7 +6,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: es
 
 framework:
     #esi:             ~
@@ -120,11 +120,14 @@ fos_rest:
     view:
         templating_formats:
             json: false
+        formats:
+            rss: false
+            xml: false
+            json: true
     body_listener:
         array_normalizer: fos_rest.normalizer.camel_keys
         decoders:
             json: fos_rest.decoder.json
-            xml: fos_rest.decoder.xml
 
 knp_paginator:
     page_range: 10

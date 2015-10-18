@@ -31,3 +31,7 @@ OptcRestApi\Components\Character\Entity\Character:
             type: integer
             expose: true
             groups: [api]
+        combo:
+            type: integer
+            expose: true
+            groups: [api]

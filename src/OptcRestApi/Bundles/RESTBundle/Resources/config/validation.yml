@@ -2,3 +2,5 @@ OptcRestApi\Components\Character\Entity\Character:
     properties:
         name:
             - NotBlank: { groups: [edit, new] }
+        description:
+            - NotBlank: { groups: [edit, new] }

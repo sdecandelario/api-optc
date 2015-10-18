@@ -2,12 +2,12 @@
 
 namespace OptcRestApi\Bundles\RESTBundle\Controller\Character;
 
-use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\SerializationContext;
 use OptcRestApi\Bundles\RESTBundle\Controller\BaseController;
 use OptcRestApi\Components\Character\Entity\Character;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * CharacterController.
@@ -16,6 +16,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CharacterController extends BaseController
 {
+    /**
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function listAction(Request $request)
     {
         $page = $request->query->get('page', 1);
@@ -38,6 +43,13 @@ class CharacterController extends BaseController
         return $this->handleView($view);
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return JsonResponse
+     *
+     * @throws \Exception
+     */
     public function createAction(Request $request)
     {
         $response = new JsonResponse();
@@ -70,6 +82,11 @@ class CharacterController extends BaseController
         return $response;
     }
 
+    /**
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function getAction($id)
     {
         $em = $this->get('doctrine.orm.default_entity_manager');
@@ -88,41 +105,51 @@ class CharacterController extends BaseController
     }
 
     /**
-     * @param Request $request
      * @param $id
+     * @param $character
+     *
+     * @ParamConverter("character", converter="fos_rest.request_body", options={"deserializationContext"={"groups"={"api"}, "version"="1.0"}})
      *
      * @return JsonResponse
      */
-    public function updateAction(Request $request, $id)
+    public function updateAction($id, Character $character)
     {
-        $response = new JsonResponse();
-
-        $serializer = $this->get('jms_serializer');
         $em = $this->get('doctrine.orm.default_entity_manager');
-
         $merger = $this->get('optc_api.entity_merger');
 
-        $deserializationContext = new DeserializationContext();
-        $entity = $serializer->fromArray($request->request->all(), 'OptcRestApi\Components\Character\Entity\Character', $deserializationContext);
-        $character = $em->getRepository('OptcRestApi\Components\Character\Entity\Character')->find($id);
+        $view = $this->view();
 
-        $merger->mergeEntities($character, $entity);
+        $entity = $em->getRepository('OptcRestApi\Components\Character\Entity\Character')->find($id);
 
-        $em->merge($character);
-        $em->flush();
+        $errors = $this->getValidationErrors($entity, array('edit'));
 
-        return $response;
+        if (count($errors) > 0) {
+            $view->setData($errors);
+        } else {
+            $view->setData(array('OK'));
+            $merger->mergeEntities($entity, $character);
+            $em->merge($character);
+            $em->flush();
+        }
+
+        return $this->handleView($view);
     }
 
+    /**
+     * @param Character $character
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function deleteAction(Character $character)
     {
-        $response = new JsonResponse();
+        $view = $this->view();
 
         $em = $this->get('doctrine.orm.default_entity_manager');
 
         $em->remove($character);
         $em->flush();
+        $view->setData(array('message' => 'Character deleted'));
 
-        return $response;
+        return $this->handleView($view);
     }
 }
