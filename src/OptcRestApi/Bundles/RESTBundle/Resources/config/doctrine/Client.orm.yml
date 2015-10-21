@@ -17,4 +17,5 @@ OptcRestApi\Components\OAuth\Entity\Client:
             column: redirect_uris
             type: array
         allowedGrantTypes:
+            column: allowed_grant_types
             type: array

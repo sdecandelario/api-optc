@@ -7,6 +7,11 @@ OptcRestApi\Components\OAuth\Entity\AuthCode:
             type: integer
             generator:
                 strategy: AUTO
+    fields:
+        redirectUri:
+            column: redirect_uri
+            type: string
+            length: 255
     manyToOne:
         client:
             targetEntity: OptcRestApi\Components\OAuth\Entity\Client

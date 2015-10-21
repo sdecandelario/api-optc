@@ -11,6 +11,12 @@ OptcRestApi\Components\OAuth\Entity\AccessToken:
         token:
             type: string
             length: 255
+        expiresAt:
+            type: integer
+        scope:
+            type: string
+            length: 255
+            nullable: true
     manyToOne:
         client:
             targetEntity: OptcRestApi\Components\OAuth\Entity\Client
@@ -18,5 +24,3 @@ OptcRestApi\Components\OAuth\Entity\AccessToken:
                 nullable: false
         user:
             targetEntity: OptcRestApi\Components\User\Entity\User
-            joinColumn:
-                nullable: false

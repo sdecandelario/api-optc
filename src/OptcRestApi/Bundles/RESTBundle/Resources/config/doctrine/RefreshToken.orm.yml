@@ -7,6 +7,16 @@ OptcRestApi\Components\OAuth\Entity\RefreshToken:
             type: integer
             generator:
                 strategy: AUTO
+    fields:
+        token:
+            type: string
+            length: 255
+        expiresAt:
+            type: integer
+        scope:
+            type: string
+            length: 255
+            nullable: true
     manyToOne:
         client:
             targetEntity: OptcRestApi\Components\OAuth\Entity\Client
